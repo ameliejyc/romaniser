@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Romaniser</title>
+</head>
+
+<body>
+  <form>
+    <label for="input">Enter a number</label>
+    <input id="input" type="number">
+    <!--will only allow numbers to be typed in-->
+    <button type="submit">Hit me</button>
+  </form>
+  <div id="result">
+  </div>
+
+  <script src="romaniser.js"></script>
+  <script>
+    // having scripted inline is good for small things but otherwise having separate files is best practice
+    var form = document.querySelector('form');
+    var result = document.querySelector('#result');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); <!--stops page refreshing when we submit-->
+      var romanised = romaniser(event.target[0].value);
+      result.textContent = romanised;
+    })
+  </script>
+</body>
+
+</html>
